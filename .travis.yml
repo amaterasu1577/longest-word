@@ -8,3 +8,4 @@ install:
   - pipenv install --dev
 script:
   - pipenv run nosetests
+  - pipenv run pylint game.py
