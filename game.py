@@ -8,7 +8,7 @@ class Game():
     def __init__(self):
         """ Initialize grid with 9 letters """
         letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
-        self.grid = [letters[randint(0, len(letters) - 1)] for index in range(9)]
+        self.grid = ''.join([letters[randint(0, len(letters) - 1)]for index in range(9)])
     def is_valid(self, word):
         """ Test wether or not a word is valid considering s specific grid """
         result = True
@@ -17,7 +17,7 @@ class Game():
             result = False
         else:
             for char in word:
-                if char in self.grid:
+                if char not in self.grid:
                     result = False
         return result
     def __check_dictionary(self, word):
