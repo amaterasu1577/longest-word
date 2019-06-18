@@ -12,7 +12,7 @@ class Game():
     def is_valid(self, word):
         """ Test wether or not a word is valid considering s specific grid """
         result = True
-        if self.__check_dictionary(word):
+        if not self.__check_dictionary(word):
             print(f'Word {word} is not in the dictionnary...')
             result = False
         else:
@@ -21,7 +21,6 @@ class Game():
                     result = False
         return result
     def __check_dictionary(self, word):
-        r = requests.get(f"https://wagon-dictionary.herokuapp.com/{word}")
-        print(r)
-        response = r.json()
+        wagon_res = requests.get(f"https://wagon-dictionary.herokuapp.com/{word}")
+        response = wagon_res.json()
         return response['found']
