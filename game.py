@@ -17,7 +17,7 @@ class Game():
             result = False
         else:
             for char in word:
-                if char in self.grid:
+                if char not in self.grid:
                     result = False
         return result
     def __check_dictionary(self, word):
